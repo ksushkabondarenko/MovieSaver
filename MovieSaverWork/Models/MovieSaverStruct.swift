@@ -1,31 +1,27 @@
-
 import Foundation
 
 import UIKit
 
 struct MovieInfo {
-    internal init(name: String, rating: String, releaseDate: String, youtubeLink: URL, description: String, imageMovie: UIImage) {
-        self.name = name
-        self.rating = rating
-        self.releaseDate = releaseDate
-        self.youtubeLink = youtubeLink
-        self.description = description
-        self.imageMovie = imageMovie
-    }
-    
-    init() {
-        self.name = ""
-        self.rating = ""
-        self.releaseDate = ""
-        self.youtubeLink = URL(string: "https://www.youtube.com/watch?v=JfVOs4VSpmA")!
-        self.description = ""
-        self.imageMovie = UIImage(named: "pictureImage")!
-    }
-    
-    var name: String
-    var rating: String
-    var releaseDate: String
-    var youtubeLink: URL
-    var description: String
-    var imageMovie: UIImage
+    var name: String = ""
+    var rating: String = ""
+    var releaseDate: String = ""
+    var youtubeLink: URL = URL(string: "https://www.youtube.com/watch?v=V0hagz_8L3M")!
+    var description: String = ""
+    var imageMovie: UIImage = UIImage(named: "NoneImage")!
 }
+
+//public protocol ImageCodable: Codable {}
+//extension UIImage: ImageCodable {}
+//
+//extension ImageCodable where Self: UIImage {
+//    public init(from decoder: Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        self.init(data: try container.decode(Data.self))!
+//    }
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        try container.encode(self.pngData()!)
+//    }
+//}
+

@@ -1,0 +1,120 @@
+
+import UIKit
+
+class TableViewCell: UITableViewCell {
+    
+    // MARK: - Properties
+    // MARK: Public
+    public var movieImageView: UIImageView = UIImageView()
+    public var nameMovieLabel: UILabel = UILabel()
+    public var ratingMovieLabel: UILabel = UILabel()
+    
+    // MARK: Private
+    private let mainView: UIView = UIView()
+    private let infoMovieStackView: UIStackView = UIStackView()
+    private let infoView: UIView = UIView()
+    
+    //MARK: - LIfecycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addAllSubviews()
+        addConstraints()
+        addSetupsUI()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    // MARK: - Constraints
+    // MARK: Private
+    private func addConstraints() {
+        addMainViewConstraint()
+        addImageViewConstraints()
+        addInfoViewConstraints()
+        addInfoMovieStackView()
+    }
+    private func addMainViewConstraint() {
+        mainView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
+        mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+    }
+    private func addImageViewConstraints() {
+        movieImageView.translatesAutoresizingMaskIntoConstraints = false
+        movieImageView.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
+        movieImageView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
+        movieImageView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
+        movieImageView.widthAnchor.constraint(equalToConstant: 197).isActive = true
+    }
+    private func addInfoViewConstraints() {
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
+        infoView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
+        infoView.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor, constant: -7).isActive = true
+        infoView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -7).isActive = true
+    }
+    private func addInfoMovieStackView() {
+        infoMovieStackView.translatesAutoresizingMaskIntoConstraints = false
+        infoMovieStackView.topAnchor.constraint(equalTo: infoView.topAnchor).isActive = true
+        infoMovieStackView.bottomAnchor.constraint(equalTo: infoView.bottomAnchor).isActive = true
+        infoMovieStackView.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor).isActive = true
+        infoMovieStackView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor).isActive = true
+    }
+    // MARK: - Setups
+    // MARK: Private
+    private func addAllSubviews() {
+        contentView.addSubview(mainView)
+        contentView.addSubViews(movieImageView)
+        contentView.addSubview(infoView)
+        infoView.addSubview(infoMovieStackView)
+        infoMovieStackView.addArrangedSubview(nameMovieLabel)
+        infoMovieStackView.addArrangedSubview(ratingMovieLabel)
+    }
+    private func addSetupsUI() {
+        addCellSetUp()
+        addMainViewUI()
+        addMovieImageViewUI()
+        addInfoView()
+        addInfoMovieStackViewUI()
+        addNameMovieLabelUI()
+        addRatingMovieLabelUI()
+    }
+    private func addCellSetUp() {
+        self.contentView.layer.cornerRadius = 8
+        self.contentView.layer.masksToBounds = true
+        self.backgroundColor = AppColor.backgroundColor
+        self.layer.shadowOpacity = 0.6
+        self.layer.shadowRadius = 4
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4).cgColor
+    }
+    private func addMovieImageViewUI() {
+        movieImageView.layer.cornerRadius = 8
+        movieImageView.clipsToBounds = true
+    }
+    private func addMainViewUI() {
+        mainView.backgroundColor = .white
+        mainView.layer.cornerRadius = 8
+    }
+    
+    private func addInfoView() {
+        infoView.backgroundColor = .white
+    }
+    private func addInfoMovieStackViewUI() {
+        infoMovieStackView.axis = .vertical
+        infoMovieStackView.alignment = .center
+        infoMovieStackView.distribution = .fillEqually
+    }
+    private func addNameMovieLabelUI() {
+        nameMovieLabel.font = .manrope(ofSize: 18, weight: .regular)
+        nameMovieLabel.textAlignment = .center
+        nameMovieLabel.textColor = .black
+        nameMovieLabel.numberOfLines = 3
+    }
+    private func addRatingMovieLabelUI() {
+        ratingMovieLabel.font = .manrope(ofSize: 18, weight: .regular)
+        ratingMovieLabel.text = "8.9/10"
+        ratingMovieLabel.textAlignment = .center
+        ratingMovieLabel.textColor = .black
+    }
+}

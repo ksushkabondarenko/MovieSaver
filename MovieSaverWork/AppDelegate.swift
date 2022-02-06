@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  MovieSaverWork
-//
-//  Created by Ксения Бондаренко on 16.01.22.
-//
 
 import UIKit
 

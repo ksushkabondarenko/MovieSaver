@@ -1,124 +1,186 @@
 import UIKit
 
-final class SecondViewController: UIViewController {
+protocol TransferDataBetweenVCDelegate: AnyObject {
+    func transferMovieName(_ name: String)
+    func transferMovieRating(_ rating: String)
+    func transferMovieDate(_ date: Date)
+    func transferMovieYouTube(_ url: URL)
+}
 
-   
+final class SecondViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
-    // MARK: Public
-
     // MARK: - API
-    // MARK: - Setups
-    // MARK: - Helpers
-
     
     // MARK: Public
-    
-   // public var movieInfo: MovieInfo = MovieInfo()
-    
+    public var movieInfo = MovieInfo()
+    weak var delegate: TransferMovieBetweenVCDelegate?
     
     // MARK: Private
-    
-   // private var imageButton = UIButton()
-    //private let saveImage: UIImage = UIImage(named: "pictureImage")!
-    //private let imageView = UIImageView()
-    
-    
+    private var selectedImage: UIImage?
+    private var imagePicker = UIImagePickerController()
     
     // MARK: - Outlets
     
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    
-    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var releaseDateLabel: UILabel!
+    @IBOutlet var ratingLabel: UILabel!
+    @IBOutlet var youTubeLinkLabel: UILabel!
+    @IBOutlet var descriptionTextView: UITextView!
     
     // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubViews()
-        addConstraints()
         setUps()
-        //imageView.image = saveImage
-        
-        
-        //navigationController
-        self.title = "Add new"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        var saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.plain, target: self, action: "Save")
-        navigationItem.rightBarButtonItem = saveButton
-        self.navigationItem.hidesBackButton = true
-        
-        
-        
-       
-
+        setupToHideKeyboardOnTapOnView()
     }
-    
     
     // MARK: - Setups
-    
-    private func addSubViews() {
-       // view.addSubview(imageButton)
-        //view.addSubview(imageView)
-    }
-    
-    private func addConstraints() {
-        
-//        //imageButton
-//
-//        imageButton.translatesAutoresizingMaskIntoConstraints = false
-//        imageButton.heightAnchor.constraint(equalToConstant: 150).isActive = true
-//        imageButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
-//        imageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        imageButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 167).isActive = true
-//
-//        //imageView
-//
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 167).isActive = true
-//        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-//        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
-        
-    }
-    
     private func setUps() {
-        //imageButton
-//
-//        imageButton.layer.cornerRadius = 75
-//        imageButton.layer.backgroundColor = UIColor(red: 0.867, green: 0.867, blue: 0.867, alpha: 1).cgColor
-//        imageButton.addTarget(self, action: #selector(buttonOnClick), for: .touchUpInside)
-//
-//        //imageView
-//
-//        imageView.layer.cornerRadius = 75
+        // navigationController
+        title = "Add new"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonClick))
+        navigationItem.rightBarButtonItem = saveButton
+        navigationItem.hidesBackButton = true
+        // view
+        view.backgroundColor = AppColor.backgroundColorWithWhite
     }
     
-    
-       @objc func buttonOnClick(_ sender: UIButton)
-    {
-       
+    @objc func saveButtonClick(_ sender: UIBarButtonItem) {
         
+        if nameLabel.text != "-" && releaseDateLabel.text != "-" && ratingLabel.text != "-" && youTubeLinkLabel.text != "-" && descriptionTextView.text != "" && selectedImage != nil {
+            movieInfo.name = nameLabel.text!
+            movieInfo.rating = ratingLabel.text!
+            movieInfo.releaseDate = releaseDateLabel.text!
+            movieInfo.youtubeLink = URL(string: youTubeLinkLabel.text!)!
+            movieInfo.description = descriptionTextView.text!
+            movieInfo.imageMovie = imageView.image!
+            delegate?.transferMovieInfo(movieInfo)
+            navigationController?.popViewController(animated: true)
+        } else {
+            showAllert("Fill in all fields")
+        }
     }
     
-   
     // MARK: - Actions
+    @IBAction func imageButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
+    private func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
     
-//    @IBAction func changeNameButton(_ sender: UIButton) {
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "NameChangeViewController") as! NameChangeViewController
-//        navigationController?.pushViewController(vc, animated: true)
-//
-//    }
+    private func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[.editedImage] as? UIImage {
+            imageView.image = image
+            selectedImage = image
+        }
+    }
     
+    @IBAction func changeNameButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NameChangeViewController") as! NameChangeViewController
+        navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
+    }
     
+    @IBAction func changeRatingButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "RatingChangeViewController") as! RatingChangeViewController
+        navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
+    }
     
+    @IBAction func changeReleaseDataButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ReleaseDataChangeViewController") as! ReleaseDataChangeViewController
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
+    @IBAction func changeLinkButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LinkChangeViewController") as! LinkChangeViewController
+        navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
+    }
     
+    // MARK: - Helpers
+    private func showAllert(_ msg: String) {
+        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
+extension SecondViewController: TransferDataBetweenVCDelegate {
+    func transferMovieRating(_ rating: String) {
+        ratingLabel.text = rating
+    }
+    
+    func transferMovieDate(_ date: Date) {
+        let dateformatter = DateFormatter()
+        // dateformatter.dateFormat = "dd MMMM yyyy"
+        dateformatter.dateFormat = "yyyy"
+        releaseDateLabel.text = dateformatter.string(from: date)
+    }
+    
+    func transferMovieYouTube(_ url: URL) {
+        youTubeLinkLabel.text = url.absoluteString
+    }
+    
+    func transferMovieName(_ name: String) {
+        nameLabel.text = name
+    }
+}
+
+extension SecondViewController {
+    func setupToHideKeyboardOnTapOnView() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

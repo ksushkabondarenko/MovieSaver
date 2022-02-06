@@ -11,7 +11,6 @@
 		231C543D279376580096D175 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C543C279376580096D175 /* SceneDelegate.swift */; };
 		231C543F279376580096D175 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C543E279376580096D175 /* ViewController.swift */; };
 		231C5442279376580096D175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231C5440279376580096D175 /* Main.storyboard */; };
-		231C54442793765A0096D175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231C54432793765A0096D175 /* Assets.xcassets */; };
 		231C54472793765A0096D175 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231C54452793765A0096D175 /* LaunchScreen.storyboard */; };
 		231C5450279378230096D175 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C544F279378230096D175 /* SecondViewController.swift */; };
 		231C5464279379D20096D175 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231C5456279379D20096D175 /* Manrope-Medium.ttf */; };
@@ -23,9 +22,19 @@
 		231C546A279379D20096D175 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231C545C279379D20096D175 /* Manrope-Bold.ttf */; };
 		231C5470279379E10096D175 /* MovieSaverStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C546F279379E10096D175 /* MovieSaverStruct.swift */; };
 		231C547327937C3D0096D175 /* NameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C547227937C3D0096D175 /* NameChangeViewController.swift */; };
+		2329CF5927A85E2700E92EE1 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2329CF5827A85E2700E92EE1 /* MovieDetailsViewController.swift */; };
+		2394B6E527ABF950009B002A /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2394B6E427ABF950009B002A /* Asset.xcassets */; };
 		23B5F7DD2795DA14008086FF /* ReleaseDataChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F7DA2795DA14008086FF /* ReleaseDataChangeViewController.swift */; };
 		23B5F7DE2795DA14008086FF /* LinkChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F7DB2795DA14008086FF /* LinkChangeViewController.swift */; };
 		23B5F7DF2795DA14008086FF /* RatingChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F7DC2795DA14008086FF /* RatingChangeViewController.swift */; };
+		23B5F80727998DAF008086FF /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F80627998DAF008086FF /* UIView+.swift */; };
+		23B5F809279990FC008086FF /* EasyAutolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F808279990FC008086FF /* EasyAutolayout.swift */; };
+		23B5F80B27999291008086FF /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F80A27999291008086FF /* UIFont+.swift */; };
+		23B5F80D27999706008086FF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F80C27999706008086FF /* UIViewController.swift */; };
+		23B5F85427A19F01008086FF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F85327A19F01008086FF /* String+.swift */; };
+		23B5F85727A80EC8008086FF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F85527A80EC8008086FF /* TableViewCell.swift */; };
+		23B5F85827A80EC8008086FF /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B5F85627A80EC8008086FF /* TableViewCell.xib */; };
+		23E43DCD27AAF037005F49FD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E43DCC27AAF037005F49FD /* AppColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +43,6 @@
 		231C543C279376580096D175 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		231C543E279376580096D175 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		231C5441279376580096D175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		231C54432793765A0096D175 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		231C54462793765A0096D175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231C54482793765A0096D175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231C544F279378230096D175 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -47,9 +55,19 @@
 		231C545C279379D20096D175 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		231C546F279379E10096D175 /* MovieSaverStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSaverStruct.swift; sourceTree = "<group>"; };
 		231C547227937C3D0096D175 /* NameChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameChangeViewController.swift; sourceTree = "<group>"; };
+		2329CF5827A85E2700E92EE1 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		2394B6E427ABF950009B002A /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		23B5F7DA2795DA14008086FF /* ReleaseDataChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseDataChangeViewController.swift; sourceTree = "<group>"; };
 		23B5F7DB2795DA14008086FF /* LinkChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkChangeViewController.swift; sourceTree = "<group>"; };
 		23B5F7DC2795DA14008086FF /* RatingChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingChangeViewController.swift; sourceTree = "<group>"; };
+		23B5F80627998DAF008086FF /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		23B5F808279990FC008086FF /* EasyAutolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyAutolayout.swift; sourceTree = "<group>"; };
+		23B5F80A27999291008086FF /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		23B5F80C27999706008086FF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		23B5F85327A19F01008086FF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		23B5F85527A80EC8008086FF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		23B5F85627A80EC8008086FF /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		23E43DCC27AAF037005F49FD /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +100,17 @@
 		231C5439279376580096D175 /* MovieSaverWork */ = {
 			isa = PBXGroup;
 			children = (
+				23E43DCC27AAF037005F49FD /* AppColor.swift */,
+				23B5F808279990FC008086FF /* EasyAutolayout.swift */,
+				23B5F80527998D8B008086FF /* Extensions */,
 				231C5455279379D20096D175 /* Fonts */,
 				231C546E279379E10096D175 /* Models */,
 				231C543A279376580096D175 /* AppDelegate.swift */,
 				231C543C279376580096D175 /* SceneDelegate.swift */,
 				231C544E279377DF0096D175 /* ViewControllers */,
+				23B5F85927A80EE2008086FF /* TableViewCell */,
 				231C5440279376580096D175 /* Main.storyboard */,
-				231C54432793765A0096D175 /* Assets.xcassets */,
+				2394B6E427ABF950009B002A /* Asset.xcassets */,
 				231C54452793765A0096D175 /* LaunchScreen.storyboard */,
 				231C54482793765A0096D175 /* Info.plist */,
 			);
@@ -99,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				231C543E279376580096D175 /* ViewController.swift */,
+				2329CF5827A85E2700E92EE1 /* MovieDetailsViewController.swift */,
 				231C544F279378230096D175 /* SecondViewController.swift */,
 				231C547127937C3D0096D175 /* MovieChangeControllers */,
 			);
@@ -138,6 +161,26 @@
 			path = MovieChangeControllers;
 			sourceTree = "<group>";
 		};
+		23B5F80527998D8B008086FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23B5F80627998DAF008086FF /* UIView+.swift */,
+				23B5F80A27999291008086FF /* UIFont+.swift */,
+				23B5F80C27999706008086FF /* UIViewController.swift */,
+				23B5F85327A19F01008086FF /* String+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23B5F85927A80EE2008086FF /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				23B5F85527A80EC8008086FF /* TableViewCell.swift */,
+				23B5F85627A80EC8008086FF /* TableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +191,7 @@
 				231C5433279376580096D175 /* Sources */,
 				231C5434279376580096D175 /* Frameworks */,
 				231C5435279376580096D175 /* Resources */,
+				2329CF5C27A8699500E92EE1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -197,12 +241,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				231C5468279379D20096D175 /* Manrope-ExtraLight.ttf in Resources */,
+				2394B6E527ABF950009B002A /* Asset.xcassets in Resources */,
+				23B5F85827A80EC8008086FF /* TableViewCell.xib in Resources */,
 				231C5467279379D20096D175 /* Manrope-Regular.ttf in Resources */,
 				231C54472793765A0096D175 /* LaunchScreen.storyboard in Resources */,
 				231C5469279379D20096D175 /* Manrope-Light.ttf in Resources */,
 				231C5465279379D20096D175 /* Manrope-SemiBold.ttf in Resources */,
 				231C5466279379D20096D175 /* Manrope-ExtraBold.ttf in Resources */,
-				231C54442793765A0096D175 /* Assets.xcassets in Resources */,
 				231C546A279379D20096D175 /* Manrope-Bold.ttf in Resources */,
 				231C5464279379D20096D175 /* Manrope-Medium.ttf in Resources */,
 				231C5442279376580096D175 /* Main.storyboard in Resources */,
@@ -211,20 +256,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2329CF5C27A8699500E92EE1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+
+";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		231C5433279376580096D175 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2329CF5927A85E2700E92EE1 /* MovieDetailsViewController.swift in Sources */,
+				23B5F85727A80EC8008086FF /* TableViewCell.swift in Sources */,
 				231C5450279378230096D175 /* SecondViewController.swift in Sources */,
 				231C543F279376580096D175 /* ViewController.swift in Sources */,
 				23B5F7DD2795DA14008086FF /* ReleaseDataChangeViewController.swift in Sources */,
 				231C543B279376580096D175 /* AppDelegate.swift in Sources */,
+				23B5F80B27999291008086FF /* UIFont+.swift in Sources */,
+				23B5F80727998DAF008086FF /* UIView+.swift in Sources */,
 				23B5F7DE2795DA14008086FF /* LinkChangeViewController.swift in Sources */,
+				23B5F80D27999706008086FF /* UIViewController.swift in Sources */,
 				231C543D279376580096D175 /* SceneDelegate.swift in Sources */,
 				231C5470279379E10096D175 /* MovieSaverStruct.swift in Sources */,
 				231C547327937C3D0096D175 /* NameChangeViewController.swift in Sources */,
+				23B5F809279990FC008086FF /* EasyAutolayout.swift in Sources */,
+				23B5F85427A19F01008086FF /* String+.swift in Sources */,
 				23B5F7DF2795DA14008086FF /* RatingChangeViewController.swift in Sources */,
+				23E43DCD27AAF037005F49FD /* AppColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +448,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M5YX5MW6HJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieSaverWork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -400,6 +476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M5YX5MW6HJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieSaverWork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
