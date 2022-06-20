@@ -1,13 +1,9 @@
 import UIKit
 import WebKit
 
-class MovieDetailsViewController: UIViewController {
+final class MovieDetailsViewController: UIViewController {
     
-    // MARK: - Outlets
-    // MARK: - Actions
-    // MARK: - Properties
     // MARK: Public
-    
     public var movieInfo = MovieInfo()
     
     // MARK: Private
@@ -19,16 +15,12 @@ class MovieDetailsViewController: UIViewController {
     private let descriptionTextView = UITextView()
     private let trailerWebView = WKWebView()
     
-    // MARK: - API
-    // MARK: - Setups
-    // MARK: - Helpers
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         addConstraints()
-        addSetUps()
+        setUpUI()
         addInfoMovie()
     }
     
@@ -84,7 +76,7 @@ class MovieDetailsViewController: UIViewController {
         trailerWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
     }
     
-    private func addSetUps() {
+    private func setUpUI() {
         // view
         view.backgroundColor = AppColor.backgroundColorWithWhite
         // scrollView

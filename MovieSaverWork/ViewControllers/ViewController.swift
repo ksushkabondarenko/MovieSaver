@@ -7,18 +7,11 @@ protocol TransferMovieBetweenVCDelegate: AnyObject {
 }
 
 final class ViewController: UIViewController {
-    
     // MARK: - Outlets
-    // MARK: - Actions
-    // MARK: - Properties
-    
-    // MARK: Public
     @IBOutlet var mainTableView: UITableView!
     
     // MARK: Private
     private var moviesInfo: [MovieInfo] = []
-    
-    // MARK: - API
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,7 +27,6 @@ final class ViewController: UIViewController {
     }
     
     // MARK: - Setups
-    
     private func addSetUps() {
         // navigationController
         title = "My Movie List"
@@ -56,11 +48,6 @@ final class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         moviesInfo.count
     }
@@ -71,10 +58,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = mainTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell {
-            cell.movieImageView.image = moviesInfo[indexPath.row].imageMovie
-            cell.nameMovieLabel.text = moviesInfo[indexPath.row].name
-            cell.ratingMovieLabel.attributedText = ratingMovieInfo(indexPath)
-            
+            cell.set(movie: moviesInfo[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -87,21 +71,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             detailScreenVC.movieInfo = moviesInfo[indexPath.item]
             navigationController?.pushViewController(detailScreenVC, animated: true)
         }
-    }
-    
-    // MARK: - Helpers
-    
-    // MARK: Private
-    private func ratingMovieInfo(_ indexPath: IndexPath) -> NSMutableAttributedString {
-        let firstAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .bold)]
-        let secondAttributes = [NSAttributedString.Key.foregroundColor:
-                                    UIColor(red: 0.592, green: 0.592, blue: 0.592, alpha: 1),
-                                NSAttributedString.Key.font:
-                                    UIFont.systemFont(ofSize: 18, weight: .light)]
-        let firstString = NSMutableAttributedString(string: "\(moviesInfo[indexPath.row].rating)", attributes: firstAttributes)
-        let secondString = NSAttributedString(string: "/10", attributes: secondAttributes)
-        firstString.append(secondString)
-        return firstString
     }
 }
 

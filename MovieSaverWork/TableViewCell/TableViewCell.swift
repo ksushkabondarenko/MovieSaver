@@ -1,22 +1,19 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-    
-    // MARK: - Properties
-    // MARK: Public
-    public var movieImageView: UIImageView = UIImageView()
-    public var nameMovieLabel: UILabel = UILabel()
-    public var ratingMovieLabel: UILabel = UILabel()
-    
+final class TableViewCell: UITableViewCell {
     // MARK: Private
     private let mainView: UIView = UIView()
     private let infoMovieStackView: UIStackView = UIStackView()
     private let infoView: UIView = UIView()
+    private var movieImageView: UIImageView = UIImageView()
+    private var nameMovieLabel: UILabel = UILabel()
+    private var ratingMovieLabel: UILabel = UILabel()
     
     //MARK: - LIfecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         addAllSubviews()
         addConstraints()
         addSetupsUI()
@@ -24,7 +21,27 @@ class TableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - Constraints
+    
+    // MARK: - API
+    func set(movie: MovieInfo) {
+        movieImageView.image = movie.imageMovie
+        nameMovieLabel.text = movie.name
+        ratingMovieLabel.attributedText = ratingMovieInfo(movie: movie)
+    }
+    
+    // MARK: Private
+    private func ratingMovieInfo(movie: MovieInfo) -> NSMutableAttributedString {
+        let firstAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .bold)]
+        let secondAttributes = [NSAttributedString.Key.foregroundColor:
+                                    UIColor(red: 0.592, green: 0.592, blue: 0.592, alpha: 1),
+                                NSAttributedString.Key.font:
+                                    UIFont.systemFont(ofSize: 18, weight: .light)]
+        let firstString = NSMutableAttributedString(string: "\(movie.rating)", attributes: firstAttributes)
+        let secondString = NSAttributedString(string: "/10", attributes: secondAttributes)
+        firstString.append(secondString)
+        return firstString
+    }
+    
     // MARK: Private
     private func addConstraints() {
         addMainViewConstraint()
@@ -60,12 +77,9 @@ class TableViewCell: UITableViewCell {
         infoMovieStackView.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor).isActive = true
         infoMovieStackView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor).isActive = true
     }
-    // MARK: - Setups
     // MARK: Private
     private func addAllSubviews() {
-        contentView.addSubview(mainView)
-        contentView.addSubViews(movieImageView)
-        contentView.addSubview(infoView)
+        contentView.addSubViews(mainView,movieImageView, infoView)
         infoView.addSubview(infoMovieStackView)
         infoMovieStackView.addArrangedSubview(nameMovieLabel)
         infoMovieStackView.addArrangedSubview(ratingMovieLabel)

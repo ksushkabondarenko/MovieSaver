@@ -2,14 +2,10 @@
 import UIKit
 
 final class ReleaseDataChangeViewController: UIViewController {
-    
-    // MARK: - Outlets
-    // MARK: - Properties
+  
     // MARK: Public
     weak var delegate: TransferDataBetweenVCDelegate?
     
-    // MARK: - API
-    // MARK: - Helpers
     // MARK: Private
     private let changeLabel = UILabel()
     private let saveButton = UIButton()
@@ -20,7 +16,7 @@ final class ReleaseDataChangeViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         addConstraints()
-        addSetUps()
+        setUpUI()
     }
     
     // MARK: - Setups
@@ -29,12 +25,28 @@ final class ReleaseDataChangeViewController: UIViewController {
     }
     
     private func addConstraints() {
-        changeLabel.pin.centerX(in: view).top(to: view, offset: 124).width(to: 200).height(to: 26)
-        datePicker.pin.centerX(in: view).top(to: view, offset: 182).height(to: 194).leading(to: view, offset: 0).trailing(to: view, offset: 0)
-        saveButton.pin.centerX(in: view).top(to: view, offset: 408).width(to: 79).height(to: 27)
+        //changeLabel
+        changeLabel.translatesAutoresizingMaskIntoConstraints = false
+        changeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 124).isActive = true
+        changeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        changeLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        changeLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        //datePicker
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.topAnchor.constraint(equalTo: view.topAnchor, constant: 182).isActive = true
+        datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        datePicker.heightAnchor.constraint(equalToConstant: 194).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        //saveButton
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 408).isActive = true
+        saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        saveButton.widthAnchor.constraint(equalToConstant: 79).isActive = true
+        saveButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
     }
     
-    private func addSetUps() {
+    private func setUpUI() {
         // changeLabel
         changeLabel.text = "Release Date"
         changeLabel.font = .manrope(ofSize: 24, weight: .regular)

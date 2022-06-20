@@ -8,10 +8,7 @@ protocol TransferDataBetweenVCDelegate: AnyObject {
 }
 
 final class SecondViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    // MARK: - Properties
-    // MARK: - API
-    
+   
     // MARK: Public
     public var movieInfo = MovieInfo()
     weak var delegate: TransferMovieBetweenVCDelegate?
@@ -32,12 +29,12 @@ final class SecondViewController: UIViewController, UIImagePickerControllerDeleg
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUps()
+        setUpUI()
         setupToHideKeyboardOnTapOnView()
     }
     
     // MARK: - Setups
-    private func setUps() {
+    private func setUpUI() {
         // navigationController
         title = "Add new"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -156,7 +153,6 @@ extension SecondViewController: TransferDataBetweenVCDelegate {
     
     func transferMovieDate(_ date: Date) {
         let dateformatter = DateFormatter()
-        // dateformatter.dateFormat = "dd MMMM yyyy"
         dateformatter.dateFormat = "yyyy"
         releaseDateLabel.text = dateformatter.string(from: date)
     }

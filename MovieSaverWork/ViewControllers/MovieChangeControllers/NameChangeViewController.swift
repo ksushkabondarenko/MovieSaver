@@ -3,13 +3,10 @@
 import UIKit
 
 final class NameChangeViewController: UIViewController, UITextFieldDelegate {
-    
-    // MARK: - Outlets
-    // MARK: - Properties
+  
     // MARK: Public
     weak var delegate: TransferDataBetweenVCDelegate?
-    
-    // MARK: - API
+   
     // MARK: Private
     private let changeLabel = UILabel()
     private let nameTextField = UITextField()
@@ -21,7 +18,7 @@ final class NameChangeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         addSubviews()
         addConstraints()
-        addSetUps()
+        setUpUI()
         nameTextField.delegate = self
     }
     
@@ -31,13 +28,35 @@ final class NameChangeViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func addConstraints() {
-        changeLabel.pin.centerX(in: view).top(to: view, offset: 124).width(to: 200).height(to: 26)
-        nameTextField.pin.centerX(in: view).top(to: view, offset: 192).height(to: 44).leading(to: view, offset: 25).trailing(to: view, offset: 25)
-        simpleView.pin.centerX(in: nameTextField).bottom(to: nameTextField, offset: 0).height(to: 0.5).leading(to: view, offset: 25).trailing(to: view, offset: 25)
-        saveButton.pin.centerX(in: view).top(to: simpleView, offset: 42).width(to: 79).height(to: 27)
+        //changeLabel
+        changeLabel.translatesAutoresizingMaskIntoConstraints = false
+        changeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 124).isActive = true
+        changeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        changeLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        changeLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        //nameTextField
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 192).isActive = true
+        nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 25).isActive = true
+        nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        //simpleView
+        simpleView.translatesAutoresizingMaskIntoConstraints = false
+        simpleView.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        simpleView.centerXAnchor.constraint(equalTo: nameTextField.centerXAnchor).isActive = true
+        simpleView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        simpleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 25).isActive = true
+        simpleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        //saveButton
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.topAnchor.constraint(equalTo: simpleView.bottomAnchor, constant: 42).isActive = true
+        saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        saveButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
+        saveButton.widthAnchor.constraint(equalToConstant: 79).isActive = true
     }
     
-    private func addSetUps() {
+    private func setUpUI() {
         // changeLabel
         changeLabel.text = "Film Name"
         changeLabel.font = .manrope(ofSize: 24, weight: .regular)

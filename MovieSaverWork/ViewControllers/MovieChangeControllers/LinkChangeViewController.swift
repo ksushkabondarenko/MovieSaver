@@ -3,13 +3,9 @@
 import UIKit
 
 final class LinkChangeViewController: UIViewController, UITextFieldDelegate {
-    
-    // MARK: - Outlets
-    // MARK: - Properties
+ 
     // MARK: Public
     weak var delegate: TransferDataBetweenVCDelegate?
-    
-    // MARK: - API
     
     // MARK: Private
     private let changeLabel = UILabel()
@@ -22,7 +18,7 @@ final class LinkChangeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         addSubviews()
         addConstraints()
-        addSetUps()
+        setUpUI()
         linkTextField.delegate = self
     }
     
@@ -32,13 +28,35 @@ final class LinkChangeViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func addConstraints() {
-        changeLabel.pin.centerX(in: view).top(to: view, offset: 124).width(to: 200).height(to: 26)
-        linkTextField.pin.centerX(in: view).top(to: view, offset: 192).height(to: 44).leading(to: view, offset: 25).trailing(to: view, offset: 25)
-        simpleView.pin.centerX(in: linkTextField).bottom(to: linkTextField, offset: 0).height(to: 0.5).leading(to: view, offset: 25).trailing(to: view, offset: 25)
-        saveButton.pin.centerX(in: view).top(to: simpleView, offset: 42).width(to: 79).height(to: 27)
+        //changeLabel
+        changeLabel.translatesAutoresizingMaskIntoConstraints = false
+        changeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 124).isActive = true
+        changeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        changeLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        changeLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        //linkTextField
+        linkTextField.translatesAutoresizingMaskIntoConstraints = false
+        linkTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 192).isActive = true
+        linkTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        linkTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        linkTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 25).isActive = true
+        linkTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        //simpleView
+        simpleView.translatesAutoresizingMaskIntoConstraints = false
+        simpleView.bottomAnchor.constraint(equalTo: linkTextField.bottomAnchor).isActive = true
+        simpleView.centerXAnchor.constraint(equalTo: linkTextField.centerXAnchor).isActive = true
+        simpleView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        simpleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 25).isActive = true
+        simpleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
+        //saveButton
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.topAnchor.constraint(equalTo: simpleView.bottomAnchor, constant: 42).isActive = true
+        saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        saveButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
+        saveButton.widthAnchor.constraint(equalToConstant: 79).isActive = true
     }
     
-    private func addSetUps() {
+    private func setUpUI() {
         // changeLabel
         changeLabel.text = "Film YouTube Link"
         changeLabel.font = .manrope(ofSize: 24, weight: .regular)

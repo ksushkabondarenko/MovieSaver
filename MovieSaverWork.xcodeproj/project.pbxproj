@@ -28,10 +28,7 @@
 		23B5F7DE2795DA14008086FF /* LinkChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F7DB2795DA14008086FF /* LinkChangeViewController.swift */; };
 		23B5F7DF2795DA14008086FF /* RatingChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F7DC2795DA14008086FF /* RatingChangeViewController.swift */; };
 		23B5F80727998DAF008086FF /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F80627998DAF008086FF /* UIView+.swift */; };
-		23B5F809279990FC008086FF /* EasyAutolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F808279990FC008086FF /* EasyAutolayout.swift */; };
 		23B5F80B27999291008086FF /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F80A27999291008086FF /* UIFont+.swift */; };
-		23B5F80D27999706008086FF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F80C27999706008086FF /* UIViewController.swift */; };
-		23B5F85427A19F01008086FF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F85327A19F01008086FF /* String+.swift */; };
 		23B5F85727A80EC8008086FF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5F85527A80EC8008086FF /* TableViewCell.swift */; };
 		23B5F85827A80EC8008086FF /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B5F85627A80EC8008086FF /* TableViewCell.xib */; };
 		23E43DCD27AAF037005F49FD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E43DCC27AAF037005F49FD /* AppColor.swift */; };
@@ -61,10 +58,7 @@
 		23B5F7DB2795DA14008086FF /* LinkChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkChangeViewController.swift; sourceTree = "<group>"; };
 		23B5F7DC2795DA14008086FF /* RatingChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingChangeViewController.swift; sourceTree = "<group>"; };
 		23B5F80627998DAF008086FF /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		23B5F808279990FC008086FF /* EasyAutolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyAutolayout.swift; sourceTree = "<group>"; };
 		23B5F80A27999291008086FF /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		23B5F80C27999706008086FF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		23B5F85327A19F01008086FF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		23B5F85527A80EC8008086FF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		23B5F85627A80EC8008086FF /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		23E43DCC27AAF037005F49FD /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -101,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				23E43DCC27AAF037005F49FD /* AppColor.swift */,
-				23B5F808279990FC008086FF /* EasyAutolayout.swift */,
 				23B5F80527998D8B008086FF /* Extensions */,
 				231C5455279379D20096D175 /* Fonts */,
 				231C546E279379E10096D175 /* Models */,
@@ -166,8 +159,6 @@
 			children = (
 				23B5F80627998DAF008086FF /* UIView+.swift */,
 				23B5F80A27999291008086FF /* UIFont+.swift */,
-				23B5F80C27999706008086FF /* UIViewController.swift */,
-				23B5F85327A19F01008086FF /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,12 +283,9 @@
 				23B5F80B27999291008086FF /* UIFont+.swift in Sources */,
 				23B5F80727998DAF008086FF /* UIView+.swift in Sources */,
 				23B5F7DE2795DA14008086FF /* LinkChangeViewController.swift in Sources */,
-				23B5F80D27999706008086FF /* UIViewController.swift in Sources */,
 				231C543D279376580096D175 /* SceneDelegate.swift in Sources */,
 				231C5470279379E10096D175 /* MovieSaverStruct.swift in Sources */,
 				231C547327937C3D0096D175 /* NameChangeViewController.swift in Sources */,
-				23B5F809279990FC008086FF /* EasyAutolayout.swift in Sources */,
-				23B5F85427A19F01008086FF /* String+.swift in Sources */,
 				23B5F7DF2795DA14008086FF /* RatingChangeViewController.swift in Sources */,
 				23E43DCD27AAF037005F49FD /* AppColor.swift in Sources */,
 			);
